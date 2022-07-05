@@ -1,0 +1,32 @@
+html {
+	font-size: 16px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0 auto;
+	background-position: center;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	width: clamp(300px, 90%, 400px);
+}
+
+main {
+	width: clamp(300px, 90%, 400px);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
