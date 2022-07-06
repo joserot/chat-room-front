@@ -10,26 +10,27 @@ export function initMessages() {
 			super();
 			this.shadow = this.attachShadow({ mode: "open" });
 			this.fragment = document.createDocumentFragment();
-			//	this.messages = state.getState().messages;
-			//	this.room = state.getState().roomId;
+
 			state.subscribe(() => {
 				this.messages = state.getState().messages;
 				this.room = state.getState().roomId;
 
-				Object.values(this.messages).forEach((m: any) => {
-					let div = document.createElement("div");
-					div.innerHTML = `
+				if (this.messages !== undefined) {
+					Object.values(this.messages).forEach((m: any) => {
+						let div = document.createElement("div");
+						div.innerHTML = `
           <p class="author">${m.author}</p>
           <p class="message">${m.message}</p>
           `;
-					this.fragment.appendChild(div);
-				});
+						this.fragment.appendChild(div);
+					});
+				}
 
 				this.render();
 			});
 		}
 		connectedCallback() {
-			//this.render();
+			this.render();
 		}
 
 		render() {

@@ -30,8 +30,8 @@ export const state = {
 		await onValue(roomRef, (snap) => {
 			const data = snap.val();
 			cs.messages = data.messages;
+			this.setState(cs);
 		});
-		await this.setState(cs);
 	},
 	async newMessages(newMessage) {
 		const cs = await this.getState();
